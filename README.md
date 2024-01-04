@@ -1,2 +1,4 @@
-# Password-Generator
-A simple Python prorgrammed to be ran in the command line that generates a comnplex password.
+# :key: Password-Generator :lock:
+
+A simple Python program designed to help users create unique, complex passwords straight from the command line. :computer:
+
