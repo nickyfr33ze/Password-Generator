@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css">
+    <title>Password Generator | NickyFr33ze</title> 
+</head>
+<body>
+    <div class="class container">
+        <h1>Nick's </h1>
+        <h2>Password Generator</h2>
+        <div class="wrapper">
+            <div class="input-box">
+                <input type="text" disabled>
+                <span class="material-symbols-outlined">copy_all</span>
+                <div>
+                    <button class="gen-button" onclick="generate()">Generate</button>
+                </div>
+            </div>
+            <div class="password-indicator">
+                <div class="pass-length">
+                    <label for="pass-length">Password Length :</label>
+                    <input type="number" id="pass-length" value="16" min="12" max="30">
+                </div>
+                <div class="pass-options">
+                    <div class="option">
+                        <input type="checkbox" id="uppercase" checked>
+                        <label for="uppercase">Uppercase</label>
+                    </div>
+                    <div class="option">
+                        <input type="checkbox" id="lowercase" checked>
+                        <label for="lowercase">Lowercase</label>
+                    </div>
+                    <div class="option">
+                        <input type="checkbox" id="numbers" checked>
+                        <label for="numbers">Numbers</label>
+                    </div>
+                    <div class="option">
+                        <input type="checkbox" id="symbols" checked>
+                        <label for="symbols">Symbols</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="script.js"></script>
+</body>
+</html>
