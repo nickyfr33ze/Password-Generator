@@ -21,6 +21,19 @@ const generatePassword = () => {
 
     for (let i = 0; i < length; i++) {
         // fill password input with random characters
+        password += characters.uppercase.charAt(Math.floor(Math.random() * characters.uppercase.length));
+        password += characters.lowercase.charAt(Math.floor(Math.random() * characters.lowercase.length));
+        password += characters.numbers.charAt(Math.floor(Math.random() * characters.numbers.length));
+        password += characters.symbols.charAt(Math.floor(Math.random() * characters.symbols.length));
+
+        // shuffle password
+        generatedPassword = password.split('').sort(() => Math.random() - 0.5).join('');
+
+        // remove extra characters
+        generatedPassword = generatedPassword.slice(0, length);
+
+        // return generated password
+        return generatedPassword;
     }
     // set generated password to 'generatedPassword' element
 }
@@ -34,6 +47,29 @@ generateButton.addEventListener('click', generatePassword);
 
 copyButton.addEventListener('click', () => {
     // copy generated password to clipboard
+    const passwordToCopy = generatedPassword.textContent;
+    navigator.clipboard.writeText(passwordToCopy);
+
+    // alert user that password was copied
+    alert('Password copied to clipboard');
+
+    // remove alert after 2 seconds
+    setTimeout(() => { alert(''); }, 2000);
+
+    // clear selection
+    window.getSelection().removeAllRanges();
+
+    // change button text to 'copied'
+    copyButton.textContent = 'Copied';
+
+    // change button color to green
+    copyButton.style.backgroundColor = 'green';
+
+    // change button text back to 'copy' after 2 seconds
+    setTimeout(() => {
+        copyButton.textContent = 'Copy';
+        copyButton.style.backgroundColor = '';
+    }, 2000);
 });
 
 lengthInput.addEventListener('input', updateSlider);
