@@ -7,35 +7,21 @@ const lowercaseElement = document.querySelector('lowercase');
 const numbersElement = document.querySelector('numbers');
 const symbolsElement = document.querySelector('symbols');
 
-const characters = {
-    uppercase: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
-    lowercase: 'abcdefghijklmnopqrstuvwxyz',
-    numbers: '0123456789',
-    symbols: '!@#$%^&*()_+'
-};
+// const characters = {
+//     uppercase: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
+//     lowercase: 'abcdefghijklmnopqrstuvwxyz',
+//     numbers: '0123456789',
+//     symbols: '!@#$%^&*()_+'
+// };
 
-const generatePassword = () => {
-    const length = lengthInput.value;
-    let password = '';
-    let generatedPassword = '';
-
-    for (let i = 0; i < length; i++) {
-        // fill password input with random characters
-        password += characters.uppercase.charAt(Math.floor(Math.random() * characters.uppercase.length));
-        password += characters.lowercase.charAt(Math.floor(Math.random() * characters.lowercase.length));
-        password += characters.numbers.charAt(Math.floor(Math.random() * characters.numbers.length));
-        password += characters.symbols.charAt(Math.floor(Math.random() * characters.symbols.length));
-
-        // shuffle password
-        generatedPassword = password.split('').sort(() => Math.random() - 0.5).join('');
-
-        // remove extra characters
-        generatedPassword = generatedPassword.slice(0, length);
-
-        // return generated password
-        return generatedPassword;
+function generate() {
+    var length = document.getElementById('length').value; // Get the desired password length
+    var charset = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+-=,./<>?;:[]\\|'; // All possible characters
+    var password = '';
+    for (var i = 0; i < length; i++) {
+        password += charset[Math.floor(Math.random() * charset.length)]; // Add a random character to the password
     }
-    // set generated password to 'generatedPassword' element
+    document.getElementById('password').value = password; // Set the value of the password field to the generated password
 }
 
 const updateSlider = () => {
