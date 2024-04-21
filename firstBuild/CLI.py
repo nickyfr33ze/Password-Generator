@@ -63,7 +63,3 @@ print("")
 time.sleep(0.5) # Wait for half a second
 print("Please consider using a password manager to store your password(s).") # Print a message asking the user to securely store their password.
 print("----------------------------------------")
-
-# else:
-#     print("An error occurred. Please try again.") # Print an error message if something goes wrong
-# 
