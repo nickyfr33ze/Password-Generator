@@ -32,9 +32,11 @@ if (length < 16):
     sys.exit() # Exit the program
 
 # Ask the user ahead of time if they want everything in their password so they do not have to go through entering 'y' for each question
+# Maybe make a string that contains everything?
 # Placeholders
 # Placeholders
 # Placeholders
+
 
 # Asking the user what letters, numbers, and symbols they want in their passwords and adds them to the 'chars' variable
 lowerQuestion = input("Do you want lowercase letters in your password? (y/n): ") # Ask the user if they want lowercase letters
