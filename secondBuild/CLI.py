@@ -8,6 +8,7 @@ import random
 import sys
 import time
 chars = '' # All usable characters determined by the user
+everything = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz123456789!@#$%^&*()_+-=,./<>?;:[]'
 lower = 'abcdefghijklmnopqrstuvwxyz' # Lowercase letters
 upper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' # Uppercase letters
 numbers = '0123456789' # Numbers
@@ -33,28 +34,40 @@ if (length < 16):
 
 # Ask the user ahead of time if they want everything in their password so they do not have to go through entering 'y' for each question
 # Maybe make a string that contains everything?
-# Placeholders
-# Placeholders
-# Placeholders
+# What if there was a way to automatically say yes to all the prompts?
+#   Would this actually be faster than just having a string containing all the chars, nums, and symbols?
+# 
+#
 
-
-# Asking the user what letters, numbers, and symbols they want in their passwords and adds them to the 'chars' variable
-lowerQuestion = input("Do you want lowercase letters in your password? (y/n): ") # Ask the user if they want lowercase letters
-if lowerQuestion == 'y': # If the user wants lowercase letters
-    chars += lower # Add lowercase letters to the list of possible characters
-time.sleep(0.5) # Wait for half a second
-upperQuestion = input("Do you want uppercase letters in your password? (y/n): ") # Ask the user if they want uppercase letters
-if upperQuestion == 'y': # If the user wants uppercase letters
-    chars += upper # Add uppercase letters to the list of possible characters
-time.sleep(0.5) # Wait for half a second
-numberQuestion = input("Do you want numbers in your password? (y/n): ") # Ask the user if they want numbers
-if numberQuestion == 'y': # If the user wants numbers
-    chars += numbers # Add numbers to the list of possible characters
-time.sleep(0.5) # Wait for half a second
-specialCharQuestion = input("Do you want special characters in your password? (y/n): ") # Ask the user if they want special characters
-if specialCharQuestion == 'y': # If the user wants special characters
-    chars += symbols # Add symbols to the list of possible characters
-time.sleep(0.5) # Wait for half a second
+# Ask if the user wants to add all the letters, numbers, and special characters to their password without having to go through each prompt.
+everythingQuestion = input("Do you want to include all letters, numbers, and special characters in your password? (y/n): ")
+if everythingQuestion == 'y':
+    chars += everything
+    time.sleep(1)
+    
+elif everythingQuestion != 'y':
+    time.sleep(1)
+    print("----------------------------------------")
+    time.sleep(0.5)
+    print("Please answer each prompt below.")
+    time.sleep(0.5)
+    # Asking the user what letters, numbers, and symbols they want in their passwords and adds them to the 'chars' variable
+    lowerQuestion = input("Do you want lowercase letters in your password? (y/n): ") # Ask the user if they want lowercase letters
+    if lowerQuestion == 'y': # If the user wants lowercase letters
+        chars += lower # Add lowercase letters to the list of possible characters
+    time.sleep(0.5) # Wait for half a second
+    upperQuestion = input("Do you want uppercase letters in your password? (y/n): ") # Ask the user if they want uppercase letters
+    if upperQuestion == 'y': # If the user wants uppercase letters
+        chars += upper # Add uppercase letters to the list of possible characters
+    time.sleep(0.5) # Wait for half a second
+    numberQuestion = input("Do you want numbers in your password? (y/n): ") # Ask the user if they want numbers
+    if numberQuestion == 'y': # If the user wants numbers
+        chars += numbers # Add numbers to the list of possible characters
+    time.sleep(0.5) # Wait for half a second
+    specialCharQuestion = input("Do you want special characters in your password? (y/n): ") # Ask the user if they want special characters
+    if specialCharQuestion == 'y': # If the user wants special characters
+        chars += symbols # Add symbols to the list of possible characters
+    time.sleep(0.5) # Wait for half a second
 print("----------------------------------------")
 time.sleep(1) # Wait for 1 second
 print("Generating password...") # Print a message to let the user know the password is being generated
