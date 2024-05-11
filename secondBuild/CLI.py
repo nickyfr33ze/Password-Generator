@@ -1,5 +1,5 @@
 # Author: Nick Friesen
-# Date: 2024-02-04
+# Date: 2024-04-31
 # Description: A simple Python program that generates a random password of a user-specified length for the command line.
 # Usage: Run 'python3 CLI.py' in the command line and follow the prompts to generate a password.
 # Please see the README.md file for more information for the web GUI.
