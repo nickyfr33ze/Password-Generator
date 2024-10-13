@@ -5,7 +5,9 @@
 # Please see the README.md file for more information for the web GUI.
 
 import random
+import random_word
 import sys
+from random_word import RandomWords
 import time
 chars = '' # All usable characters determined by the user
 everything = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz123456789!@#$%^&*()_+-=,./<>?;:[]'
