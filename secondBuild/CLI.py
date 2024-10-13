@@ -5,10 +5,9 @@
 # Please see the README.md file for more information for the web GUI.
 
 import random
-import random_word
 import sys
-from random_word import RandomWords
 import time
+from random_word import RandomWords # type: ignore
 chars = '' # All usable characters determined by the user
 everything = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz123456789!@#$%^&*()_+-=,./<>?;:[]'
 lower = 'abcdefghijklmnopqrstuvwxyz' # Lowercase letters
@@ -16,6 +15,28 @@ upper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' # Uppercase letters
 numbers = '0123456789' # Numbers
 symbols = '!@#$%^&*()_+-=,./<>?;:[]' # Symbols
 password = '' # The generated password
+
+# Ask the user if they would like to create a passphrase or a password
+# Else/If statement to determine. If the user wants a passphrase, have them enter yes or 'y'. If no, have them enter no or 'n'.
+def generate_passphrase():
+    num_words = int(input("Enter the number of random words for the passphrase: ")) # Get user input for number of words
+    delimiter = input("Enter the delimiter to use between words: ") # Get user input for delimiter
+    passphrase = delimiter.join([RandomWords().get_random_word() for _ in range(num_words)]) # Generate the passphrase
+    print("\nPassphrase generated!") # Print a message to let the user know the passphrase has been generated
+    time.sleep(0.5) # Wait for half a second
+    print(passphrase) # Print the passphrase
+    print("")
+    time.sleep(0.5) # Wait for half a second
+    print("Please consider using a password manager to store your passphrase(s).") # Print a message asking the user to securely store their passphrase.
+    print("----------------------------------------")
+    sys.exit() # Exit the program
+
+passphraseQuestion = input(str("Would you like to generate a passphrase instead of a password? (y/n): "))
+if passphraseQuestion == 'y' or passphraseQuestion == 'yes':
+    generate_passphrase()
+elif passphraseQuestion == 'n' or passphraseQuestion == 'no':
+    print("Generating a password instead.")
+    time.sleep(1)
 length = int(input("Enter the desired password length: ")) # Get user input for password length
 
 # Check if the password length is less than 16 prior to prompting for more info. Exits the program if less than 16.
@@ -40,6 +61,7 @@ if (length < 16):
 #   Would this actually be faster than just having a string containing all the chars, nums, and symbols?
 # 
 #
+
 
 # Ask if the user wants to add all the letters, numbers, and special characters to their password without having to go through each prompt.
 everythingQuestion = input("Do you want to include all letters, numbers, and special characters in your password? (y/n): ")
