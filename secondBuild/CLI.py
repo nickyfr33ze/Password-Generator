@@ -31,6 +31,19 @@ def generate_passphrase():
     print("----------------------------------------")
     sys.exit() # Exit the program
 
+# Function to generate the password
+def generate_password():
+    for i in range(length): 
+        # Loop through the length of the password
+        password += random.choice(chars) # Add a random character to the password
+    print("\nPassword generated!") # Print a message to let the user know the password has been generated
+    time.sleep(0.5) # Wait for half a second
+    print(password) # Print the password
+    print("")
+    time.sleep(0.5) # Wait for half a second
+    print("Please consider using a password manager to store your password(s) securely.") # Print a message asking the user to securely store their password.
+    print("----------------------------------------")
+
 # Ask the user if they would like to generate a passphrase instead of a password. Will run the generate_passphrase() function if the user enters 'y' or 'yes'.
 passphraseQuestion = input(str("Would you like to generate a passphrase instead of a password? (y/n): "))
 if passphraseQuestion == 'y' or passphraseQuestion == 'yes':
@@ -89,14 +102,4 @@ print("----------------------------------------")
 time.sleep(1) # Wait for 1 second
 print("Generating password...") # Print a message to let the user know the password is being generated
 time.sleep(2) # Wait for 2 seconds
-
-for i in range(length): 
-    # Loop through the length of the password
-    password += random.choice(chars) # Add a random character to the password
-print("\nPassword generated!") # Print a message to let the user know the password has been generated
-time.sleep(0.5) # Wait for half a second
-print(password) # Print the password
-print("")
-time.sleep(0.5) # Wait for half a second
-print("Please consider using a password manager to store your password(s) securely.") # Print a message asking the user to securely store their password.
-print("----------------------------------------")
+generate_password() # Generate the password
