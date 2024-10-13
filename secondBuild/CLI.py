@@ -27,10 +27,11 @@ def generate_passphrase():
     print(passphrase) # Print the passphrase
     print("")
     time.sleep(0.5) # Wait for half a second
-    print("Please consider using a password manager to store your passphrase(s).") # Print a message asking the user to securely store their passphrase.
+    print("Please consider using a password manager to store your passphrase(s) securely.") # Print a message asking the user to securely store their passphrase.
     print("----------------------------------------")
     sys.exit() # Exit the program
 
+# Ask the user if they would like to generate a passphrase instead of a password. Will run the generate_passphrase() function if the user enters 'y' or 'yes'.
 passphraseQuestion = input(str("Would you like to generate a passphrase instead of a password? (y/n): "))
 if passphraseQuestion == 'y' or passphraseQuestion == 'yes':
     generate_passphrase()
@@ -55,20 +56,12 @@ if (length < 16):
     print("----------------------------------------")
     sys.exit() # Exit the program
 
-# Ask the user ahead of time if they want everything in their password so they do not have to go through entering 'y' for each question
-# Maybe make a string that contains everything?
-# What if there was a way to automatically say yes to all the prompts?
-#   Would this actually be faster than just having a string containing all the chars, nums, and symbols?
-# 
-#
-
-
 # Ask if the user wants to add all the letters, numbers, and special characters to their password without having to go through each prompt.
 everythingQuestion = input("Do you want to include all letters, numbers, and special characters in your password? (y/n): ")
 if everythingQuestion == 'y':
     chars += everything
     time.sleep(1)
-    
+
 elif everythingQuestion != 'y':
     time.sleep(1)
     print("----------------------------------------")
@@ -105,5 +98,5 @@ time.sleep(0.5) # Wait for half a second
 print(password) # Print the password
 print("")
 time.sleep(0.5) # Wait for half a second
-print("Please consider using a password manager to store your password(s).") # Print a message asking the user to securely store their password.
+print("Please consider using a password manager to store your password(s) securely.") # Print a message asking the user to securely store their password.
 print("----------------------------------------")
