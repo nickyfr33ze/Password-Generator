@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .password-box {
+            margin: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            display: inline-block;
+        }
+        .copy-btn {
+            margin-top: 10px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Password Generator</h1>
+    <form method="POST">
+        <button type="submit">Generate Password</button>
+    </form>
+    {% if password %}
+    <div class="password-box" id="password">{{ password }}</div>
+    <button class="copy-btn" onclick="copyToClipboard()">Copy to Clipboard</button>
+    <p id="copy-message" style="display:none;">Password copied! Remember to use a password manager.</p>
+    {% endif %}
+    <script>
+        function copyToClipboard() {
+            var passwordText = document.getElementById("password").innerText;
+            navigator.clipboard.writeText(passwordText).then(function() {
+                var message = document.getElementById("copy-message");
+                message.style.display = "block";
+                setTimeout(function() {
+                    message.style.display = "none";
+                }, 3000);
+            });
+        }
+    </script>
+</body>
+</html>
