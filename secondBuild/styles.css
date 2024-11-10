@@ -1,0 +1,19 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin-top: 50px;
+}
+.password-box {
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    display: inline-block;
+}
+.copy-btn {
+    margin-top: 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+.hidden {
+    display: none;
+}
