@@ -1,58 +1,40 @@
-<!-- This is the HTML file for the Password Generator. Inside is a script to generate anc copy the passowrd and meant to be a minimal application to be hosted locally. -->
+<!-- This is the HTML file for the Password Generator. Inside is a script to generate and copy the password and is meant to be a minimal application to be hosted locally. -->
 <!DOCTYPE html>
 <html lang="en">
-<head>
+    <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Password Generator</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin-top: 50px;
-        }
-        .password-box {
-            margin: 20px;
-            padding: 10px;
-            border: 1px solid #ccc;
-            display: inline-block;
-        }
-        .copy-btn {
-            margin-top: 10px;
-            padding: 10px 20px;
-            cursor: pointer;
-        }
-    </style>
-</head>
-<body>
-    <h1>Password Generator</h1>
-    <button onclick="generatePassword()">Generate Password</button>
-    <div class="password-box" id="password"></div>
-    <button class="copy-btn" onclick="copyToClipboard()">Copy to Clipboard</button>
-    <p id="copy-message" style="display:none;">Password copied! Remember to use a password manager.</p>
-    <script>
-        function generatePassword() {
-            var chars = "0123456789abcdefghijklmnopqrstuvwxyz!@#$%^&*()ABCDEFGHIJKLMNOPQRSTUVWXYZ"; // Lists all the possible characters for the password.
-            // Todo: Should be determined by the user in the web UI.
-            var passwordLength = 12; // The length of the password.
-            var password = ""; // The generated password will be stored here.
-            for (var i = 0; i < passwordLength; i++) { // Loops through the password length.
-                var randomNumber = Math.floor(Math.random() * chars.length);
-                password += chars.substring(randomNumber, randomNumber + 1); // Adds a random character to the password.
+    </head>
+    <body>
+        <h1>Password Generator</h1>
+        <p id="copy-message" class="hidden">Password copied! Remember to use a password manager.</p>
+        <div class="password-box" id="password"></div>
+        <button class="copy-btn" onclick="copyToClipboard()">Copy to Clipboard</button>
+        <p id="copy-message">Password copied! Remember to use a password manager.</p>
+        <script>
+            function generatePassword() {
+                var chars = "0123456789abcdefghijklmnopqrstuvwxyz!@#$%^&*()ABCDEFGHIJKLMNOPQRSTUVWXYZ"; // Lists all the possible characters for the password.
+                // Todo: Should be determined by the user in the web UI.
+                var passwordLength = 12; // The length of the password.
+                var password = ""; // The generated password will be stored here.
+                for (var i = 0; i < passwordLength; i++) { // Loops through the password length.
+                    var randomNumber = Math.floor(Math.random() * chars.length);
+                    password += chars.substring(randomNumber, randomNumber + 1); // Adds a random character to the password.
+                }
+                document.getElementById("password").innerText = password;
             }
-            document.getElementById("password").innerText = password;
-        }
 
-        function copyToClipboard() {    // Functiont to copy the password to the clipboard.
-            var passwordText = document.getElementById("password").innerText;
-            navigator.clipboard.writeText(passwordText).then(function() {   // Makes use to the navigator.clipboard API to write the password to the clipboard.
-                var message = document.getElementById("copy-message");   // Displays a message to the user that the password has been copied.
-                message.style.display = "block";   // Displays the message.
-                setTimeout(function() {  // Hides the message after 3 seconds.
-                    message.style.display = "none";  // Hides the message.
-                }, 3000);  // 3 seconds.
-            });
-        }
-    </script>
-</body>
+            function copyToClipboard() {    // Function to copy the password to the clipboard.
+                var passwordText = document.getElementById("password").innerText;
+                navigator.clipboard.writeText(passwordText).then(function() {   // Makes use of the navigator.clipboard API to write the password to the clipboard.
+                    var message = document.getElementById("copy-message");   // Displays a message to the user that the password has been copied.
+                    message.style.display = "block";   // Displays the message.
+                    setTimeout(function() {  // Hides the message after 3 seconds.
+                        message.style.display = "none";  // Hides the message.
+                    }, 3000);  // 3 seconds.
+                });
+            }
+        </script>
+    </body>
 </html>
