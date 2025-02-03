@@ -13,4 +13,4 @@
         python app.py
 
 Open the local website:
-* Navigate to http://127.0.0.1:5000/ in your web browser to see the password generator.
+* Navigate to http://localhost:5000/ in your web browser to see the password generator.
