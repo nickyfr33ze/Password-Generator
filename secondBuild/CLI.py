@@ -13,8 +13,8 @@ everything = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz123456789!@#$%
 lower = 'abcdefghijklmnopqrstuvwxyz' # Lowercase letters
 upper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' # Uppercase letters
 numbers = '0123456789' # Numbers
-symbols = '!@#$%^&*()_+-=,./<>?;:[]' # Symbols
-password = '' # The generated password
+symbols = '!@#$%^&*()_+-=,./<>?;:[]' # Symbol
+password = "" # The generated password (placeholder)
 
 # Ask the user if they would like to create a passphrase or a password
 # Else/If statement to determine. If the user wants a passphrase, have them enter yes or 'y'. If no, have them enter no or 'n'.
@@ -35,6 +35,7 @@ def generate_passphrase():
 def generate_password():
     for i in range(length): 
         # Loop through the length of the password
+        global password
         password += random.choice(chars) # Add a random character to the password
     print("\nPassword generated!") # Print a message to let the user know the password has been generated
     time.sleep(0.5) # Wait for half a second
