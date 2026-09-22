@@ -52,21 +52,21 @@ if passphraseQuestion == 'y' or passphraseQuestion == 'yes':
 elif passphraseQuestion == 'n' or passphraseQuestion == 'no':
     print("Generating a password instead.")
     time.sleep(1)
-length = int(input("Enter the desired password length: ")) # Get user input for password length
+length = int(input("Enter the desired password length (minimum 8 chars: ")) # Get user input for password length
 
 # Check if the password length is less than 16 prior to prompting for more info. Exits the program if less than 16.
-if (length < 16):
-    # If the password length is less than 16, print a warning
+if (length < 8):
+    # If the password length is less than 8, print a warning
     print("----------------------------------------")
-    time.sleep(1) # Wait for 1 second
-    print("[*] WARNING: Passwords shorter than 16 characters are not recommended.")
+    time.sleep(1.5) # Wait for 1.5 seconds
+    print("[*] WARNING: Passwords shorter than 8 characters are not recommended.")
     time.sleep(2) # Wait for 2 seconds
     print("[*] Please consider using a longer password.")
     time.sleep(1.5) # Wait for 1.5 seconds
     print("")
     time.sleep(1) # Wait for 1 second
     print("[*] This program will now exit. Re-run 'python3 CLI.py' to try again.")
-    time.sleep(2) # Wait for 2 seconds
+    time.sleep(1) # Wait for 1 seconds
     print("----------------------------------------")
     sys.exit() # Exit the program
 
