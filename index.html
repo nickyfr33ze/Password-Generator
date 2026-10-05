@@ -313,10 +313,7 @@
             });
 
             // Calculate entropy
-            const charsetSize = (hasLowercase ? 26 : 0) +
-                               (hasUppercase ? 26 : 0) +
-                               (hasNumbers ? 10 : 0) +
-                               (hasSymbols ? 32 : 0);
+            const charsetSize = (hasLowercase ? 26 : 0) + (hasUppercase ? 26 : 0) + (hasNumbers ? 10 : 0) + (hasSymbols ? 32 : 0);
             const entropy = password.length > 0 ? Math.log2(Math.pow(charsetSize, password.length)) : 0;
 
             // Update metrics
